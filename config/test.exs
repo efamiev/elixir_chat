@@ -8,7 +8,7 @@ import Config
 config :elixir_chat, ElixirChat.Repo,
   username: "postgres",
   password: "postgres",
-  hostname: "localhost",
+  hostname: "postgres",
   database: "elixir_chat_test#{System.get_env("MIX_TEST_PARTITION")}",
   pool: Ecto.Adapters.SQL.Sandbox,
   pool_size: System.schedulers_online() * 2
@@ -16,7 +16,7 @@ config :elixir_chat, ElixirChat.Repo,
 # We don't run a server during test. If one is required,
 # you can enable the server option below.
 config :elixir_chat, ElixirChatWeb.Endpoint,
-  http: [ip: {127, 0, 0, 1}, port: 4002],
+  http: [ip: {0, 0, 0, 0}, port: 4002],
   secret_key_base: "ApKrMuGcgOOTVMKpJMwjV3gtnX3bOEIpsq/OhOyo/rOwN3ZeELLZFRF7Rv64bHKz",
   server: false
 
